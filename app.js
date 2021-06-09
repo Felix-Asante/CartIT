@@ -55,8 +55,9 @@ app.use(connectFlash());
 
 // * STORE SESSION IN DATABASE
 let DBCONFIG = {
-	host: "localhost",
-	user: "root",
+	host: process.env.DB_HOST,
+	user: "admin",
+	port: process.env.DB_PORT,
 	password: process.env.DB_LOCK,
 	database: "CartIt",
 };
