@@ -1,0 +1,317 @@
+
+// * SHOWCASE SECTION
+#showcase{
+    margin-top: 1em;
+    .container{
+        display: flex;
+        // justify-content: space-between;
+        gap: 4em;
+
+        .product-navs{
+            background: $white;
+            line-height: 2;
+            padding: 1.5em 1em;
+            width: 500px;
+            ul{
+            
+                    a{
+                        &:hover{
+                            color: $red;
+                        }
+                    }
+                
+            }
+        }
+
+        .showcase-slider{
+            width: 70%;
+            height: 328px;
+            .slider{
+                width: 100%;
+                min-height: 328px;
+                position: relative;
+                
+                .slider-item{
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    justify-content: center;
+                    text-align: center;
+                    min-height: 328px;
+                    // width: 80% !important;
+                    gap: 1.5em;
+                    position: relative;
+                    z-index: 10;
+                    // border-radius: 16px;
+                    width: 794px;
+                    // box-sizing: border-box;
+                }
+                .ramadan-sale{
+                    background: url('../images/kitchen.jpg') no-repeat center center/cover;
+                    object-fit: cover;
+                    z-index: 10;
+                    color: $white;
+                    // height: 500px;
+                    
+                    &::before{
+                        position: absolute;
+                        content: '';
+                        top: 0;
+                        left: 0;
+                        width: 100%;
+                        height: 100%;
+                        background: $dark;
+                        opacity: 0.6;
+                        // border-radius: 19px;
+                        z-index: -10;
+                    }
+
+                    .discount{
+                        height: 100px;
+                        width: 100px;
+                        border-radius: 50%;
+                        text-align: center;
+                        display: flex;
+                       flex-direction: column;
+                       justify-content: center;
+                       gap: 5px;
+
+                       h4{
+                           font-size: 1.5em;
+                       }
+
+                        p{
+                            font-size: 12px;
+                        }
+                    }
+                }
+
+                button{
+                    width: 10px;
+                    height: 10px;
+                    border:1px solid $white;
+                    border-radius: 50%;
+                    // position: absolute;
+                    z-index: 50;
+                    // bottom: 50px;
+                    background: transparent;
+                    
+                }
+                .slick-dots{
+                    display: flex;
+                    gap: 5px;
+                    position: absolute;
+                    bottom: 9px;
+                    left: 15px;
+                }
+
+                
+                .slick-active{
+                    button{
+                        background: $red;
+                        border: none;
+                    }
+                }
+
+                // .slick-slide{
+                //     width: 900px;
+                //     box-sizing: border-box;
+                // }
+            }
+            
+        }
+        
+    }
+}
+
+// * OFFER SECTION
+#offer{
+    background: $white;
+    margin-top: 3em;
+    .container{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1em 0;
+        .offer{
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            i{
+                height: 80px;
+                width: 80px;
+                border-radius: 50%;
+                text-align: center;
+                font-size: 2rem;
+                display: grid;
+                place-items: center;
+            }
+        }
+    }
+}
+
+// * PLUS COMMANDE
+#plus-demande{
+    margin: 3rem 0;
+    .container{
+        .text{
+            h2{
+                font-size: 1.2rem;
+            }
+            .line{
+                width: 100%;
+                height: 3px;
+                background: $gray;
+
+                .inner-line{
+                    width: 19%;
+                    height: 100%;
+                }
+            }
+        }
+
+        .product{
+            display: flex;
+            justify-content: space-between;
+            margin: 1rem 0;
+            
+            .item{
+                padding: .5rem;
+                background: $white;
+                height: 210px;
+                text-align: center;
+                width: 150px !important;
+                position: relative;
+                cursor: pointer;
+
+                &:hover > .actions > span > i{
+                    opacity: 1;
+                }
+                
+                img{
+                    width: 110px;
+                    height: 110px;
+                    display: block;
+                    margin: auto;
+                }
+
+                .product-name{
+                    padding: .5em 0;
+                    font-weight: 600;
+                    font-size: .8rem;
+                }
+
+                .red-text{
+                    font-weight: 700;
+                    font-size: 1.1rem;
+                }
+
+                .actions{
+                    position: absolute;
+                    top: 15%;
+                    left: 0;
+                    width: 100%;
+                    text-align: justify;
+                    a{
+                        font-size: .7rem;
+                        opacity: 0;
+                    }
+
+                    span{
+                        display: block;
+                        &:hover{
+
+                            background: $red;
+                            // opacity: 0.95;
+                            color: white;
+
+                            a{                                
+                                color: white;
+                                opacity: 1;              
+                            }
+                        }
+
+
+                        i{
+                            font-size: .9rem;
+                            opacity: 0;
+                            &:hover + a{                                
+                                color: white;
+                                opacity: 1;              
+                            }
+                        }
+                    }
+                    .white-list,.cart{
+                        padding:.2em .5em;
+                    }
+                    
+                }
+            }
+
+            
+        }
+    }
+}
+
+// * OFFER OF THE DAY
+.offer-text{
+   border-radius: 8px 8px 0 0;
+   width: 20%;
+   padding: .3em;
+}
+// * ADVERT SECTION
+#advert{
+    height: 320px;
+    background: $white;
+    .container{
+        display: flex;
+        align-items: center;
+        height: 100%;
+        gap: 20px;
+
+        img{
+            width: 600px;
+            height: 230px;
+            border-radius: 8px;
+        }
+    }
+}
+
+// * NEWSLETTER SECTION
+#newsletter{
+    padding: 1em;
+    height: 25vh;
+    .container{
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        .info{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+
+            .text{
+                h3{
+                    font-size: 1.5rem;
+                    font-weight: 700;
+                    margin-bottom: .2em;
+                }
+            }
+        }
+
+        form{
+            display: flex;
+            input,button{
+                padding: 12px 15px;
+            }
+            .email{
+                background: $gray;
+                width: 300px;
+            }
+        }
+
+    }
+}

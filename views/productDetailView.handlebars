@@ -1,0 +1,71 @@
+
+{{> header}}
+<section id="detail-page">
+    <div class="container">
+        <div class="product-photo-name flex">
+            {{#each product}}
+            <div class="product-image">
+                <img src="{{this.productPhoto}}" alt="" class="main-img" width="100%" height="100%">
+                <div class="sub-images flex">
+                    <img src="{{this.productPhoto}}" alt="" class="active-img sub-image" style="width: 80px; height:80px;">
+                {{#each ../photos}}
+                    <img src="{{this.photo}}" alt="" class="sub-image" style="width: 80px; height:80px;">
+                {{/each}}
+                </div>
+            </div>
+            <div class="product-title">
+                <div id="product-name" class="flex">
+                    <h1 class="product-name">{{this.productName}}</h1>
+                    <i class="far fa-heart"></i>
+                </div>
+                <i class="fas fa-star red-text"></i>
+                <i class="fas fa-star red-text"></i>
+                <i class="fas fa-star red-text"></i>
+                <i class="far fa-star red-text"></i>
+                <i class="far fa-star red-text"></i>
+                <hr>
+                <div class="price">
+                    <strong>
+                        <h2>{{this.price}} <span class="price-tag">Dhs</span></h2>
+                    </strong>
+                </div>
+                {{#if this.status}}
+                <p class="red-text">Ready added to cart</p>
+                <a href="/cart/checkout/payment/gateways" class="btn bg-red" style="margin: 10px 0;">Proceed to checkOut</a>
+                {{else}}
+                <a href="/cart/add/{{this.productId}}" class="btn bg-red"><i class="fas fa-shopping-bag"></i> Add to cart</a>
+                {{/if}}
+            </div>
+        </div>
+        <div id="details">
+
+            <h3 class="">Details</h3>
+            <hr>
+            <div class="description">
+                <p>{{{this.description}}}</p>
+            </div>
+        </div>
+        {{/each}}
+    </div>
+</section>
+{{>footer}}
+<script>
+        const smallPhotos = document.querySelectorAll('.sub-image')
+
+        smallPhotos.forEach(photo=>{
+            photo.addEventListener('click',(e)=>{
+                document.querySelector('.main-img').src=photo.src;
+
+                {{!-- REMOVE ACTIVE-IMG CLASS FROM ALL IMAGES THAT ALREADY THIS CLASS --}}
+
+                document.querySelectorAll('.active-img').forEach(img=>{
+                    img.classList.remove('active-img')
+                })
+                
+                photo.classList.add("active-img")
+
+            })
+        })
+</script>
+
+

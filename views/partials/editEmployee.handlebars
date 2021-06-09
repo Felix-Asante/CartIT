@@ -1,0 +1,33 @@
+<main id="edit-product">
+	<table class="product-list">
+		<thead>
+			<tr>
+				<td>Employee</td>
+				<td>Role</td>
+				<td></td>
+			</tr>
+		</thead>
+		<tbody>
+			{{#if workers}}
+				{{#each workers}}
+					<tr>
+						<td>{{this.userName}}</td>
+						<td>{{this.role}}</td>
+
+						<td><a
+								href="/admin/employee/edit/deleteemployee?employee={{this.idWorkers}}"
+								class="red-text"
+							><i class="fas fa-times red-text"></i></a></td>
+					</tr>
+				{{/each}}
+			{{else}}
+				<tr>
+					<td> <h3 class="red-text">No employee created..</h3></td>
+					<td></td>
+				</tr>
+
+			{{/if}}
+		</tbody>
+	</table>
+
+</main>

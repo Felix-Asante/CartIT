@@ -1,0 +1,26 @@
+<main id="extra-productphoto" class="">
+    <div class="wrapper">
+        <h2>Add Extra Photo</h2>
+        <form action="/admin/product/edit/addextraphotos?productid={{productId}}" method="POST" enctype="multipart/form-data">
+            <div class="photo form-group">
+                <label for="photo">Add  photo:</label>
+                <input type="file" name="photo" id="product-image">
+                <img src="" alt="" id="photoimg"  style="object-fit: cover;">
+                <div class="photo-select">
+                    <button><i class="far fa-image"></i> Choose file </button>
+                    <span id="filename"></span>
+                </div>
+            </div>
+          <button type="submit" class="bg-red"><i class="fas fa-plus-circle"></i> Add Photo</button>
+
+        </form>
+        <div class="photo-grid">
+
+        {{#each extraphotos}}
+            <img src="{{this.photo}}" alt="" width="80px" height="80px" style="object-fit: cover;">
+        {{/each }}
+        </div>
+    </div>
+        <script defer src="/js/script.js"></script>
+    
+</main>

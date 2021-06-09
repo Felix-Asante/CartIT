@@ -1,0 +1,20 @@
+#main-footer{
+    margin-top: 1em;
+    background: $gray;
+    padding: 1rem 0;
+    .container{
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        line-height: 1.5;
+        .payment-methods{
+            .fa-cc-paypal{
+                color: #1C42A4;
+            }
+            .fa-cc-visa{
+                color: #FC3307;
+            }
+            
+        }
+    }
+}

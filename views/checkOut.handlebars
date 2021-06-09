@@ -1,0 +1,65 @@
+{{> header}}
+<section class="checkout-showcase">
+<div class="container">
+  
+  <h2 class="title">My Cart</h2>
+
+    <div class="cart-items">
+      {{#if cart}}
+        <table>
+          <thead>
+            <tr>
+              <th>PRODUCT</th>
+              <th>PRODUCT NAME</th>
+              <th>PRICE</th>
+              <th>QTY</th>
+              <th>SUB-TOTAL</th>
+            </tr>
+          </thead>
+          <tbody>
+            {{#each cart}}
+            <tr>
+              <td><img src="{{this.productPhoto}}" alt="" width="50" height="50" style="object-fit: cover;"></td>
+              <td>{{this.productName}}</td>
+              <td>{{this.price}}</td>
+              <td class="quantity">
+                <span class="minus">-</span>
+                <input type="text" name="" class="quantity" value="{{this.qty}}">
+                <span class="plus">+</span>
+              </td>
+              <td>
+                <strong>
+                  <p class="sub-total">{{multiply this.price this.qty}}</p>
+                </strong>
+              </td>
+              <td><a href="/cart/remove/{{this.productName}}" class="red-text">Remove from cart</a></td>
+              <td></td>
+            </tr>
+          </tbody>
+          {{/each}}
+        </table>
+
+        <div class="coupon">
+          <form action="">
+            <label for="">Promo Code:</label>
+            <input type="text" name="code" id="" placeholder="Enter your promo code">
+            <button class="btn">APPLY CODE</button>
+          </form>
+        </div>
+        <div class="total">
+          <strong>
+            <span>TOTAL:
+            </span>
+              <span id="total">{{total}}</span><span> DH</span>
+          </strong>
+
+          <a href="/cart/checkout/payment/gateways" class="bg-red">CheckOut</a>
+        </div>
+      {{else}}
+      <div class="p red-text">Cart Empty</div>
+      {{/if}}
+    </div>
+</div>
+</section>
+<script src="/js/checkout.js"></script>
+{{> footer}}

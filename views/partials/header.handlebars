@@ -1,0 +1,39 @@
+<header id="main-header">
+    <div class="container">
+        <div class="header-flex-items">
+            <div class="brand-logo">
+                <a href="/"><h1 class="red-text">Cart <span class="dark-text">IT</span></h1></a>
+            </div>
+            <form action="" method="POST">
+                <input type="text" name="searchitem" id="searchbar" placeholder="Cherchez un produit ou categorie">
+                <input type="submit"  value="SEARCH" class="btn bg-red">
+            </form>
+
+            <div class="login-cart">
+                <div class="login">
+                    {{#if user}}
+                    <span style="position: relative;top:-45px;">Welcome, <a  href ='' class="red-text"> {{user}}</a></span>
+                    {{else}}
+                    <span><i class="fas fa-user-alt"></i><a  href ='' class="red-text"> Login</a>
+                        <ul class="users">
+                            <li><a href="/admin/login">Admin</a></li>
+                            <li><a href="/user/login">Membre</a></li>
+                        </ul>
+                    </span>
+                    {{/if}}
+                </div>
+                <div class="cart">
+                    <a href="/cart/checkout">
+                    <span class="bag"><i class="fas fa-shopping-bag"></i></span>
+                    {{#if cart}}
+                    <div class="bg-red total_cart_items">{{cart.length}}</div>
+                    {{else}}
+                    <div class="bg-red total_cart_items">0</div>
+                    {{/if}}
+                    </a>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</header>

@@ -1,0 +1,44 @@
+<div class="wrapper">
+    <nav class="login-nav">
+        <span><a href="/" class="red-text">Home /</a> <a href="/user/login" class="red-text">Login /</a> Sign up</span>
+    </nav>
+    <main id="login-section" style="height: 85%;">
+        <div class="title">
+            <h2>Sign Up</h2>
+        </div>
+        <a href="/user/create/newaccount" class="bg-red google-btn"><i class="fab fa-google-plus-g"></i> Continue with Google</a>
+
+         <div id="or">
+            <p class="or">Or</p>
+        </div>
+
+        <form action="/user/create/newaccount" method="POST" id="signup">
+            <div class="firstname form-group">
+               <label for="firstname">First Name:</label>
+                <input type="text" name="firstName" id="firstname" required>
+            </div>
+            <div class="lastname form-group">
+               <label for="lastname">Last Name:</label>
+                <input type="text" name="lastName" id="lastname"  required>
+            </div>
+            <div class="email form-group">
+               <label for="email">Email:</label>
+                <input type="email" name="email" id="email"  required>
+            </div>
+            <div class="password form-group">
+                <label for="password">Password:</label>
+                <input type="password" name="password" id="password">
+            </div>
+            <div class="password form-group">
+                <label for="password">Confirm password:</label>
+                <input type="password" name="Confirmpassword" id="password" >
+            </div>
+            <button class="bg-red" type="submit">Register</button>
+        </form>
+
+
+        <div class="extra-details">
+            <a href="/user/login">Already have account? Login</a>
+        </div>
+    </main>
+</div>

@@ -1,0 +1,41 @@
+<main id="new-product">
+    <div class="wrapper">
+        {{> flashmessage}}
+        {{#each item}}
+        <h2>Update {{this.productName}}</h2>
+        <form action="/admin/product/edit/updateproduct?photo={{this.productPhoto}}&product={{this.productId}}" method="POST" enctype="multipart/form-data">
+            <div class="name form-group">
+                <label for="productname">Product name:</label>
+                <input type="text" name="productname" id="product-name" value="{{this.productName}}" required>
+            </div>
+            <div class="category form-group">
+                <label for="category">Category:</label>
+                <select name="category" id="category" required>
+                {{#each ../cart}}
+                    <option value="{{this.categoryId}}">{{this.category}}</option>
+                {{/each}}
+                </select>
+            </div>
+            <div class="description form-group">
+                <label for="description">Description:</label>
+               <textarea name="description" id="" required>{{this.description}}</textarea>
+            </div>
+            <div class="price form-group">
+                <label for="price">Price:</label>
+                <input type="text" name="price" id="price-name" value="{{this.price}}" required>
+            </div>
+            <div class="photo form-group">
+                <label for="photo">Add product photo:</label>
+                <input type="file" name="photo" id="productphoto">
+                <img src="{{this.productPhoto}}" alt="" id="photoimg"  style="object-fit: cover;">
+                <div class="photo-select">
+                    <button><i class="far fa-image"></i> Choose file </button>
+                    <span id="filename"></span>
+                </div>
+            </div>
+          <button type="submit" class="bg-red"><i class="fas fa-plus-circle"></i> Update Product</button>
+
+        </form>
+        {{/each}}
+    </div>
+</main>

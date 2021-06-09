@@ -1,0 +1,89 @@
+
+// * colors
+$dark: #242F3E;
+$red: #D10024;
+$gray : #c4c4c4;
+$light-gray: #E5E5E5;
+$blue-black:#242F3E;
+$white:#ffff;
+
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: 'Montserrat', sans-serif;
+    line-height: 1.2;
+    background: $light-gray;
+    color: $dark;
+}
+
+
+// ! utility classes
+.container{
+    max-width: 1335px;
+    margin: 0 4.1rem;
+}
+
+a{
+    text-decoration: none;
+    color: $dark;
+}
+
+li{
+    list-style: none;
+}
+// * TEXT COLORS CLASSES
+.red-text{
+    color: $red;
+}
+.gray-text{
+    color: $gray;
+}
+.dark-text{
+    color: $dark;
+}
+
+// * BG CLASSES
+.bg-red{
+    background: $red;
+    color: $white;
+}
+.bg-blue-black{
+    background: $blue-black;
+    color: $white;
+}
+
+.flex{
+    display: flex;
+}
+// * CARD CLASS
+// .card{
+//     width: 280px;
+//     height: 346px;
+// }
+// * BUTTON CLASSES
+    .btn{
+        border: none;
+        outline: none;
+    }
+// * HOVER CLASSES
+.item-hover:hover{
+    box-shadow: 1px 1px 20px $light-gray ;
+}
+
+// success flash messages
+.messages{
+    background: #78da9a;
+    color: $white;
+    width: 300px;
+    padding: .3em;
+    margin: 10px 0;
+}
+
+.green-text{
+    color: #63d694;
+}

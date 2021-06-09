@@ -1,0 +1,180 @@
+{{> header}}
+{{!-- ! MAIN SHOWCASE AREA START --}}
+<section id="showcase">
+    <div class="container">
+        <nav class="product-navs">
+            <ul>
+                <a href="">
+                    <li>Health and Beauty</li>
+                </a>
+                <a href="">
+                    <li>House &amp; Kitchen</li>
+                </a>
+                <a href="">
+                    <li>Fashion</li>
+                </a>
+                <a href="">
+                    <li>Telephone &amp; Electronics</li>
+                </a>
+                <a href="">
+                    <li>Accessories</li>
+                </a>
+                <a href="">
+                    <li>Special Offers</li>
+                </a>
+                <a href="">
+                    <li>Promotions</li>
+                </a>
+                <a href="">
+                    <li></li>
+                </a>
+            </ul>
+
+        </nav>
+        <div class="showcase-slider">
+                <div class="slider">
+                    <div class="ramadan-sale slider-item">
+                        <div class="discount bg-red">
+                            <h4>80%</h4>
+                            <p>On all food products</p>
+                        </div>
+                        <h2>RAMADAN SALES</h2>
+                    </div>
+                    <div class="ramadan-sale slider-item">
+                        <div class="discount bg-red">
+                            <h4>80%</h4>
+                            <p>On all food products</p>
+                        </div>
+                        <h2>RAMADAN SALES</h2>
+                    </div>
+                </div>
+        </div>
+    </div>
+</section>
+{{!-- ! MAIN SHOWCASE AREA END --}}
+
+{{!-- offer start --}}
+<section id="offer">
+    <div class="container">
+        <div class="great-value offer">
+            <i class="fas fa-balance-scale-left bg-red"></i>
+            <p>Great Value items</p>
+        </div>
+        <div class="safe offer">
+            <i class="fas fa-briefcase bg-red"></i>
+            <p>Safe payment</p>
+        </div>
+        <div class="great-value offer">
+            <i class="fas fa-shipping-fast bg-red"></i>
+            <p>Delivery Worldwide</p>
+        </div>
+
+    </div>
+</section>
+{{!-- offer end --}}
+
+{{!-- PLUS DEMANDE START --}}
+<section id="plus-demande">
+    <div class="container">
+        <div class="text">
+            <h2>LE PLUS DEMANDE</h2>
+            <div class="line">
+                <div class="inner-line bg-red"></div>
+            </div>
+        </div>
+
+            <div class="product product-slider">
+               
+                {{#each products}}
+
+                            <a href="/cart/view/productdetails?product={{this.productId}}">
+                                <div class="item">
+                                    <img src="{{this.productPhoto}}" alt="">
+                                    <p class="product-name">{{this.ProductName}}</p>
+                                    <p class="red-text">{{this.price}}DH</p>
+                                      {{#if this.status}}
+                                        <p class="ready-added red-text" style="font-size:12px;margin-top:5px;">Ready added to cart</p>
+                                        {{else}}
+                                        <p class="ready-added red-text" style="font-size:12px;margin-top:5px; display:none">Ready added to cart</p>
+                                     {{/if}}
+                                        
+                            </a>
+                            <div class="actions">
+                                 {{#if this.status}}
+                                    <span class="cart cart-bag" style="display: none;"><i class="fas fa-shopping-bag"></i><a href="/cart/add/{{this.productId}}"> Add to Cart</a></span>
+                                    {{else}}
+                                    <span class="cart cart-bag"><i class="fas fa-shopping-bag"></i><a href="/cart/add/{{this.productId}}"> Add to Cart</a></span>
+                                  {{/if}}
+
+                                <span class="white-list"><i class="far fa-heart"></i><a href ='/wishliist/add/{{this.productId}}'> Add to wishlist</a></span>
+                            </div>
+                        </div>
+               
+                {{/each}}
+            </div>
+
+    </div>
+</section>
+{{!-- PLUS DEMANDE END --}}
+
+{{!-- OFFER OF THE DAY START --}}
+<section id="plus-demande">
+    <div class="container">
+        <div class="text">
+            <h2 class="offer-text bg-red">OFFER OF THE DAY</h2>
+            <div class="line">
+                {{!-- <div class="inner-line bg-red"></div> --}}
+            </div>
+        </div>
+
+        <div class="product product-slider">
+                {{#each products}}
+                    <a href="/admin/view/productdetails?product={{this.productId}}">
+                        <div class="item">
+                            <img src="{{this.productPhoto}}" alt="">
+                            <p class="product-name">{{this.ProductName}}</p>
+                            <p class="red-text">{{this.price}}DH</p>
+                    </a>
+                            <div class="actions">
+                                {{!-- <span class="cart"><i class="fas fa-shopping-bag"></i><a  href =''>  Add to cart</a></span> --}}
+                                <span class="cart"><i class="fas fa-shopping-bag"></i><a href="/cart/add/{{this.productId}}" class="cart-link" > Add to Cart</a></span>
+                                <span class="white-list"><i class="far fa-heart"></i><a href ='/wishlist/add{{this.productId}}'> Add to wishlist</a></span>
+                            </div>
+                        </div>
+                {{/each}}
+            </div>
+    </div>
+</section>
+{{!-- OFFER OF THE DAY END --}}
+
+{{!-- Advert start --}}
+<section id="advert">  
+    <div class="container">
+        <img src= "/images/banner.jpg"   alt="advert1">
+        <img src= "/images/banner-2.jpg"  alt="advert2">
+    <div class="img-1"></div>
+    <div class="img-2"></div>
+    </div>
+</section>
+{{!-- Advert end --}}
+
+{{!-- newsletter section start --}}
+<section id="newsletter" class="bg-blue-black">
+    <div class="container">
+        <div class="info">
+            <i class="fas fa-paper-plane fa-3x"></i>
+            <div class="text">
+                <h3>Sign Up For Newsletter</h3>
+                <p>We'll always notify you whenever there's discount</p>
+            </div>
+        </div>
+        <form action="">
+            <input type="email" name="email" id="" class="btn email" placeholder="Email here" value="{{email}}">
+            <button class="btn bg-red"  type="submit">SUBSCRIBE</button>
+        </form>
+    </div>
+</section>
+{{!-- newsletter section end --}}
+
+<script defer src="/js/cart.js"></script>
+{{> footer}}

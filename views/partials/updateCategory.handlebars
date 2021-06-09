@@ -1,0 +1,16 @@
+<main id="new-product" class="update-category">
+    <div class="wrapper">
+        {{#each categoryItem}}
+        <h2>Update: {{this.category}}</h2>
+        <form action="/admin/category/edit/updatecategory?categoryid={{this.categoryId}}" method="POST" enctype="multipart/form-data">
+            <div class="name form-group">
+                <label for="productname">Category name:</label>
+                <input type="text" name="category" id="product-name" value="{{this.category}}" required>
+            </div>
+
+          <button type="submit" class="bg-red"><i class="fas fa-plus-circle"></i> Update Category</button>
+
+        </form>
+        {{/each}}
+    </div>
+</main>

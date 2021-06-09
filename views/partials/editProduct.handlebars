@@ -1,0 +1,28 @@
+<main id="edit-product">
+    <table class="product-list">
+        <thead>
+            <tr>
+                {{#each head}}
+                <td>{{this}}</td>
+                {{/each}}
+                <td></td>
+                {{!-- <td></td> --}}
+                {{!-- <td></td> --}}
+            </tr>
+        </thead>
+        <tbody>
+            {{#each row}}
+                <tr>
+                    <td>{{this.productId}}</td>
+                    <td><img src="{{this.productPhoto}}" alt="" width="50px" height="50px" style="object-fit: cover;"></td>
+                    <td>{{this.ProductName}}</td>
+                    <td>{{this.price}}</td>
+                    <td><a href="/admin/product/edit/updateproduct?{{this.productPhoto}}&product={{this.productId}}" class="green-text"><i class="fas fa-pen green-text"></i></a></td>
+                    <td><a href="/admin/product/edit/deleteproduct?photourl={{this.productPhoto}}&product={{this.productId}}" class="red-text"><i class="fas fa-times red-text"></i></a></td>
+                    <td><a href="/admin/product/edit/addextraphotos?product={{this.productId}}" class="addphoto"><i class="far fa-image"></i> Add photo</a></td>
+                </tr>
+            {{/each}}
+        </tbody>
+    </table>
+    
+</main>

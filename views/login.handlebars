@@ -1,0 +1,40 @@
+<div class="wrapper">
+    <nav class="login-nav">
+        <span><a href="/" class="red-text">Home /</a> Login</span>
+    </nav>
+    <main id="login-section">
+        {{#if messages.error}}
+        <div class="messages">
+            <span>{{messages.error}}</span>
+        </div>
+        {{/if}}
+        <div class="title">
+            <h2>{{title}}</h2>
+        </div>
+        <form action="{{action}}" method="POST">
+            <div class="email form-group" style="display: {{display}};">
+                <i class="fas fa-user"></i>
+                <input type="email" name="email" id="email" placeholder="Email">
+            </div>
+            <div class="email form-group" style="display: {{usernameField}};">
+                <i class="fas fa-user"></i>
+                <input type="text" name="username" id="email" placeholder="UserName" >
+            </div>
+            <div class="password form-group">
+                <i class="fas fa-lock"></i>
+                <input type="password" name="password" id="password" placeholder="password">
+            </div>
+            <button class="bg-red" type="submit">Login</button>
+        </form>
+
+        <div id="or" style="display: {{display}};">
+            <p class="or">Or</p>
+        </div>
+
+        {{!-- <a href="" class="bg-red google-btn"><i class="fab fa-google-plus-g"></i> Continue with Google</a> --}}
+        <div class="extra-details" style="display: {{display}};">
+            <a href="">Forgotten password?</a>
+            <a href="/user/createaccount">Create account</a>
+        </div>
+    </main>
+</div>

@@ -1,0 +1,91 @@
+
+#main-header{
+    background: $white;
+    height: 65px;
+    position: sticky;
+    top: 0;
+    z-index: 20;
+    .container{
+        height: 100%;
+        .header-flex-items{
+            height: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            form{
+                display: flex;
+                align-items: center;
+                
+                input{
+                    height: 45px;
+                    border: none;
+                    outline: none;
+                    padding: 12px 15px;
+                }
+
+                #searchbar{
+                    border-radius: 7px 0 0 7x;
+                    background: $light-gray;
+                    width: 300px;
+                }
+                .btn{
+                    border-radius: 0 7x 7px 0;
+                    cursor: pointer;
+                }
+            }
+            .login-cart{
+                display: flex;
+                align-items: center;
+                gap: 20px;
+
+                .login{
+                    margin-top: 5.6rem;
+                    span{
+                        // position: relative;
+                        // display: inline-block;
+                        &:hover > .users{
+                           opacity: 1;
+                           visibility: visible;
+                        }
+                        .users{
+                            // position: absolute;
+                            // top: 100%;
+                            background: $white;
+                            padding: .5em;
+                            margin-top: 15px;
+                            opacity: 0;
+                            visibility: hidden;
+                            
+                            a{
+                                font-size: 14px;
+                                display: block;
+                                margin: .5em 0;
+                               
+                            }
+                        }
+                    }
+                }
+                .red-text{
+                    font-weight: 500;
+                }
+
+                .cart{
+                    position: relative;
+                    .bg-red{
+                        position: absolute;
+                        top: -5px;
+                        right: -15px;
+                        width: 16px;
+                        height: 16px;
+                        border-radius: 50%;
+                        text-align: center;
+                        font-size: 7px;
+                        font-weight: 700;
+                        padding: 4px 0;
+                    }
+                }
+            }
+        }
+    }
+}

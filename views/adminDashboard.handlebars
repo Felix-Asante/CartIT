@@ -1,0 +1,143 @@
+<main id="admin-dashboard">
+    <aside class="navs">
+        <h2><span class="red-text">CART </span>IT</h2>
+            <nav class="link">
+                <ul>
+                    <li><i class="fas fa-warehouse red-text"></i><a href="/admin">Overview</a></li>
+                    <li><i class="fas fa-clipboard-list red-text"></i><a href="">  Products</a>
+                        <div class="sub-links">
+                        <a href="/admin/add/newproduct" class="add-product">Add Product</a>
+                        <a href='/admin/product/edit/editproduct' class="add-product">Edit Products</a>
+                        </div>
+
+                    </li>
+                    <li><i class="fas fa-archive red-text"></i><a href="">Category</a>
+                        <div class="sub-links">
+                        <a href="/admin/add/newcategory" class="add-product">Add Category</a>
+                        <a href='/admin/category/edit/editcategory' class="add-product">Edit Category</a>
+                        </div>
+                    </li>
+                    <li><i class="fas fa-clipboard-check red-text"></i><a href="">  Orders</a></li>
+                    <li><i class="fas fa-users red-text"></i><a href="">Employees</a>
+                        <div class="sub-links">
+                        <a href="/admin/add/employee" class="add-product">Add Employee</a>
+                        <a href='/admin/edit/employee' class="add-product">Edit Employee</a>
+                        </div>
+                    </li>
+                </ul>
+            </nav>
+    </aside>
+
+    {{#if test}}
+    <div class="main-area">
+        <div class="cards">
+            <div class="card">
+                <div class="icon">
+                    <i class="far fa-money-bill-alt red-text fa-3x"></i>
+                </div>
+                <div class="details">
+                    <h3 class="red-text">175K</h3>
+                    <p>Total sales</p>
+                </div>
+            </div>
+            <div class="card">
+                <div class="icon">
+                    <i class="fas fa-clipboard-check red-text fa-3x"></i>
+                </div>
+                <div class="details">
+                    <h3 class="red-text">{{numberofproduct}}</h3>
+                    <p>Total product</p>
+                </div>
+            </div>
+        </div>
+
+        <div id="recent-order">
+            <h3 class="red-text">RECENT ORDER</h3>
+            <table class="orders">
+                <thead>
+                    <tr>
+                    <td>PHOTO</td>
+                    <td>PRODUCT</td>
+                    <td>PRICE</td>
+                    <td>CUSTOMER</td>
+                    {{!-- <td>AMOUNT</td> --}}
+                    </tr>
+                </thead>
+                <tbody>
+                    {{#if recentorders}}
+                    {{#each recentorders}}
+                        <tr>
+                            <td><img src="{{this.productPhoto}}" alt=""></td>
+                            <td><a href="/admin/view/order/{{this.Customers_email}}" title="view order in detail">{{this.productName}}</a></td>
+                            <td>{{this.price}}</td>
+                            <td><a href="/admin/view/order/{{this.Customers_email}}" title="view order in detail">{{this.Customers_email}}</a></td>
+
+                        </tr>
+                    {{/each}}
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td><a href="" class="bg-red"  style="padding: 10px; display:block; width:50%; margin-left: 140px;">View all orders</a></td>
+                    {{else}}
+                    <tr>
+                        <td><p class="red-text">No recent Orders</p></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    {{/if}}
+                </tbody>
+            </table>
+        </div>
+        <div class="revenue-chart">
+            <canvas></canvas>
+        </div>
+    </div>
+    {{/if}}
+    {{#if category}}
+        {{> newCategory}}
+    {{/if}}
+    {{#if product}}
+        {{> newProduct}}
+    {{/if}}
+    {{#if editproduct}}
+        {{> editProduct}}
+    {{/if}}
+    {{#if updateproduct}}
+        {{> UpdateProduct}}
+    {{/if}}
+    {{#if extraphoto}}
+        {{> addProductPhoto}}
+    {{/if}}
+    {{#if editcategory}}
+        {{> editCategory}}
+    {{/if}}
+    {{#if updatecategory}}
+        {{> updateCategory}}
+    {{/if}}
+    {{#if createEmployee}}
+        {{> createEmployee}}
+    {{/if}}
+    {{#if editEmployee}}
+        {{> editEmployee}}
+    {{/if}}
+    <aside class="admin-info">
+        <div class="logout">
+            <a href="/"><i class="fas fa-home red-text"></i></a>
+           <a href="#" class='fas fa-power-off red-text'></a>
+        </div>
+        <div class="admin-details">
+            <img src="/images/owner.jpg" alt="">
+            <p class="admin-name">Felix</p>
+            <p class="role">Owner</p>
+        </div>
+        <div class="popular-product">
+            <h4>Popular Products</h4>
+            <div class="product">
+                <img src="/images/cloth.jpeg" alt="">
+                <p class="product-name">6 Pack towel</p>
+                <p class="red-text">100dh</p>
+            </div>
+        </div>
+    </aside>
+</main>

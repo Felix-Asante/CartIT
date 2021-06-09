@@ -1,0 +1,25 @@
+<main id="edit-product">
+    <table class="product-list">
+        <thead>
+            <tr>
+                {{#each head}}
+                <td>{{this}}</td>
+                {{/each}}
+                <td></td>
+                <td></td>
+                {{!-- <td></td> --}}
+            </tr>
+        </thead>
+        <tbody>
+            {{#each categorydata}}
+                <tr>
+                    <td>{{this.categoryId}}</td>
+                    <td>{{this.category}}</td>
+                    <td><a href="/admin/category/edit/updatecategory?categoryId={{this.categoryId}}" class="green-text"><i class="fas fa-pen green-text"></i></a></td>
+                    <td><a href="/admin/category/edit/deletecategory?categoryId={{this.categoryId}}" class="red-text"><i class="fas fa-times red-text"></i></a></td>
+                </tr>
+            {{/each}}
+        </tbody>
+    </table>
+    
+</main>
