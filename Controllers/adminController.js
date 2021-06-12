@@ -290,7 +290,7 @@ const addExtraPhotoPost = (req, res) => {
 			});
 		}
 	);
-	res.redirect("/admin/product/edit/editproduct");
+	res.redirect("back");
 };
 // * CREATE WORKER : GET
 const createWorker = (req, res) => {

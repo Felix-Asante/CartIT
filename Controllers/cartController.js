@@ -109,7 +109,7 @@ const checkOutPagePost = async (req, res) => {
 	// * SAVE CUSTOMER ORDER INTO DB
 	req.session.cart.forEach((item) => {
 		order.quantity = item.qty;
-		order.Products_productId = item.productId;
+		order.productId = item.productId;
 		// amount +=Number(item.qty) * Number(item.price)
 
 		sql = "INSERT INTO CartIt.orders SET ?";
