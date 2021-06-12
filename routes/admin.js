@@ -90,4 +90,13 @@ router.post("/add/employee", adminController.createWorkerPost);
 router.get("/edit/employee", adminController.editWorkers);
 // * DELETE WORKER
 router.get("/employee/edit/deleteemployee", adminController.deleteWorker);
+// * VIEW ALL ORDERS
+router.get("/orders", adminController.viewOrders);
+// * ORDER DETAILS
+router.get("/view/order/:productid/:client", adminController.OrderDetails);
+// * DELIVER ORDER
+router.get(
+	"/order/delivered/:productid/:orderid",
+	adminController.deliverOrder
+);
 module.exports = router;

@@ -1,0 +1,49 @@
+<div id="recent-order">
+	<h3 class="red-text">RECENT ORDER</h3>
+
+	<table class="orders">
+		<thead>
+			<tr>
+				<td>PHOTO</td>
+				<td>PRODUCT</td>
+				<td>PRICE</td>
+				<td>CUSTOMER</td>
+				{{! <td>AMOUNT</td> }}
+			</tr>
+		</thead>
+		<tbody>
+			{{#if recentorders}}
+				{{#each recentorders}}
+					<tr>
+						<td><img src="{{this.productPhoto}}" alt="" /></td>
+						<td><a
+								href="/admin/view/order/{{this.productId}}/{{this.Customers_email}}"
+								title="view order in detail"
+							>{{this.productName}}</a></td>
+						<td>{{this.price}}</td>
+						<td><a
+								href="/admin/view/order/{{this.productId}}/{{this.Customers_email}}"
+								title="view order in detail"
+							>{{this.Customers_email}}</a></td>
+
+					</tr>
+				{{/each}}
+				<td></td>
+				<td></td>
+				<td></td>
+				<td><a
+						href=""
+						class="bg-red"
+						style="padding: 10px; display:block; width:50%; margin-left: 140px;"
+					>View all orders</a></td>
+			{{else}}
+				<tr>
+					<td><p class="red-text">No recent Orders</p></td>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+			{{/if}}
+		</tbody>
+	</table>
+</div>

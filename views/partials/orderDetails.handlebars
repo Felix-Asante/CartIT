@@ -1,0 +1,32 @@
+
+<section id="detail-page">
+    <div class="container">
+            <h3 class="red-text">{{email}} Orders</h3>
+            {{#each products}}
+        <div class="product-photo-name flex" style="margin: 1em 0;">
+            <div class="product-image">
+                <img src="{{this.productPhoto}}" alt="" class="main-img" width="100%" height="100%">
+            </div>
+            <div class="product-title">
+                <div id="product-name" class="flex">
+                    <p class="product-name">{{this.productName}}</p>
+                </div>
+                <hr>
+                <div class="price">
+                    <strong>
+                        <p>Unit price: <span class="price-tag">{{this.price}} Dhs</span></p>
+                        <p>Quantity: <span class="price-tag">{{this.quantity}} Dhs</span></p>
+                        <hr>
+                        <p>Total: {{multiply this.price this.quantity}}</p>
+                    </strong>
+                </div>
+                <a href="/admin/order/delivered/{{this.productId}}/{{this.orderId}}" class="btn bg-red"></i>Delivered</a>
+            </div>
+        </div>
+        {{/each}}
+    </div>
+</section>
+
+
+
+

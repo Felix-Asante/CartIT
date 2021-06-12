@@ -17,7 +17,7 @@
                         <a href='/admin/category/edit/editcategory' class="add-product">Edit Category</a>
                         </div>
                     </li>
-                    <li><i class="fas fa-clipboard-check red-text"></i><a href="">  Orders</a></li>
+                    <li><i class="fas fa-clipboard-check red-text"></i><a href="/admin/orders">  Orders</a></li>
                     <li><i class="fas fa-users red-text"></i><a href="">Employees</a>
                         <div class="sub-links">
                         <a href="/admin/add/employee" class="add-product">Add Employee</a>
@@ -50,45 +50,7 @@
                 </div>
             </div>
         </div>
-
-        <div id="recent-order">
-            <h3 class="red-text">RECENT ORDER</h3>
-            <table class="orders">
-                <thead>
-                    <tr>
-                    <td>PHOTO</td>
-                    <td>PRODUCT</td>
-                    <td>PRICE</td>
-                    <td>CUSTOMER</td>
-                    {{!-- <td>AMOUNT</td> --}}
-                    </tr>
-                </thead>
-                <tbody>
-                    {{#if recentorders}}
-                    {{#each recentorders}}
-                        <tr>
-                            <td><img src="{{this.productPhoto}}" alt=""></td>
-                            <td><a href="/admin/view/order/{{this.Customers_email}}" title="view order in detail">{{this.productName}}</a></td>
-                            <td>{{this.price}}</td>
-                            <td><a href="/admin/view/order/{{this.Customers_email}}" title="view order in detail">{{this.Customers_email}}</a></td>
-
-                        </tr>
-                    {{/each}}
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td><a href="" class="bg-red"  style="padding: 10px; display:block; width:50%; margin-left: 140px;">View all orders</a></td>
-                    {{else}}
-                    <tr>
-                        <td><p class="red-text">No recent Orders</p></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                    {{/if}}
-                </tbody>
-            </table>
-        </div>
+            {{> orders}}      
         <div class="revenue-chart">
             <canvas></canvas>
         </div>
@@ -120,6 +82,12 @@
     {{/if}}
     {{#if editEmployee}}
         {{> editEmployee}}
+    {{/if}}
+    {{#if orders}}
+    {{> orders}}
+    {{/if}}
+    {{#if orderdetails}}
+    {{> orderDetails}}
     {{/if}}
     <aside class="admin-info">
         <div class="logout">

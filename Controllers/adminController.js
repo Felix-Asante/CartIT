@@ -49,7 +49,6 @@ const displayDashboard = (req, res) => {
 				throw err;
 			}
 			const recentorders = [order[0]];
-
 			order.forEach(function (order) {
 				recentorders.forEach((item) => {
 					if (!item.Customers_email.includes(order.Customers_email)) {
@@ -260,7 +259,7 @@ const deleteProduct = (req, res) => {
 
 // * ADD EXTRA PHOTO : GET
 const addExtraPhoto = (req, res) => {
-	sql = "SELECT photo FROM CartIt.ProductPhotos WHERE Products_productId=?";
+	sql = "SELECT photo FROM CartIt.ProductPhotos WHERE productId=?";
 
 	console.log(req.query.product);
 	DB.query(sql, Number(req.query.product), function (err, extraphotos) {
@@ -338,6 +337,58 @@ const deleteWorker = (req, res) => {
 		}
 	);
 };
+// * VIEW ORDERS
+const viewOrders = (req, res) => {
+	sql =
+		"SELECT  Customers_email,status,price,productPhoto,productName,productId FROM orders JOIN Products USING(productId) HAVING status='New' ORDER BY orderId DESC";
+	DB.query(sql, function (err, order) {
+		if (err) {
+			throw err;
+		}
+		const recentorders = [order[0]];
+
+		order.forEach(function (order) {
+			recentorders.forEach((item) => {
+				if (!item.Customers_email.includes(order.Customers_email)) {
+					recentorders.push(order);
+				}
+			});
+		});
+
+		res.render("adminDashboard", { orders: true, recentorders });
+	});
+};
+// * VIEW ORDERS DETAIL PAGE
+const OrderDetails = (req, res) => {
+	sql =
+		"SELECT orderId,quantity,price,productPhoto,productName,productId,Address,Telephone,Date,Customers_email FROM CartIt.orders JOIN Products USING(productId) WHERE Customers_email =? AND status =? ";
+	DB.query(sql, [req.params.client, "New"], (err, products) => {
+		if (err) {
+			console.error(err);
+			res.send("INTERNAL ERROR");
+		} else {
+			res.render("adminDashboard", {
+				orderdetails: true,
+				products,
+				email: products[0].Customers_email,
+			});
+		}
+	});
+};
+// *DELIVER PRODUCT
+const deliverOrder = (req, res) => {
+	const { productid, orderid } = req.params;
+	sql = "UPDATE orders SET status = ? WHERE productId=? AND orderId=?";
+
+	DB.query(sql, ["Delivered", productid, orderid], (err, row) => {
+		if (err) {
+			console.log(err);
+			res.send("INTERNAL ERROR");
+		} else {
+			res.redirect("back");
+		}
+	});
+};
 module.exports = {
 	displayDashboard,
 	createCategory,
@@ -360,4 +411,7 @@ module.exports = {
 	createWorkerPost,
 	editWorkers,
 	deleteWorker,
+	viewOrders,
+	OrderDetails,
+	deliverOrder,
 };
